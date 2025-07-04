@@ -134,22 +134,52 @@
 
 ```
 converso/
-├── app/                    # Next.js app directory
-│   ├── (auth)/            # Authentication pages
-│   ├── (dashboard)/       # Protected dashboard pages
-│   ├── api/               # API routes
-│   └── globals.css        # Global styles
-├── components/            # Reusable UI components
-│   ├── ui/                # shadcn/ui components
-│   ├── forms/             # Form components
-│   └── shared/            # Shared components
-├── lib/                   # Utility functions
-│   ├── actions/           # Server actions
-│   ├── utils.ts           # Helper functions
-│   └── supabase.ts        # Supabase client
-├── constants/             # App constants and animations
-├── public/                # Static assets
-└── types/                 # TypeScript type definitions
+├── app/                         # Next.js 15 App Router
+│   ├── api/                    # API routes and endpoints
+│   ├── companions/             # Companion management pages
+│   │   ├── [id]/              # Dynamic companion detail page
+│   │   │   └── page.tsx       # Individual companion view
+│   │   ├── new/               # Create new companion
+│   │   │   └── page.tsx       # Companion creation form
+│   │   └── page.tsx           # Companions listing page
+│   ├── my-journey/            # User dashboard and analytics
+│   │   └── page.tsx           # Personal journey tracking
+│   ├── sentry-example-page/   # Error monitoring demo
+│   ├── sign-in/               # Authentication pages
+│   ├── subscription/          # Subscription management
+│   ├── favicon.ico            # App favicon
+│   ├── global-error.tsx       # Global error boundary
+│   ├── globals.css            # Global styles and Tailwind
+│   ├── layout.tsx             # Root layout component
+│   └── page.tsx               # Homepage
+├── components/                # Reusable UI components
+├── constants/                 # App constants and static data
+│   ├── index.ts              # Main constants export
+│   └── soundwaves.json       # Lottie animation data
+├── lib/                      # Utility functions and configurations
+│   ├── actions/              # Server actions
+│   │   └── companion.action.ts # Companion CRUD operations
+│   ├── supabase.ts           # Supabase client configuration
+│   ├── utils.ts              # Helper functions and utilities
+│   └── vapi.sdk.ts           # Vapi AI SDK integration
+├── public/                   # Static assets (images, icons, etc.)
+├── types/                    # TypeScript type definitions
+├── node_modules/             # Dependencies
+├── .env.local                # Environment variables (local)
+├── .env.sentry-build-plugin  # Sentry configuration
+├── .gitignore                # Git ignore rules
+├── components.json           # shadcn/ui components config
+├── eslint.config.mjs         # ESLint configuration
+├── instrumentation-client.ts # Client-side instrumentation
+├── instrumentation.ts        # Server-side instrumentation
+├── middleware.ts             # Next.js middleware (auth, etc.)
+├── next-env.d.ts             # Next.js TypeScript definitions
+├── next.config.ts            # Next.js configuration
+├── package.json              # Project dependencies and scripts
+├── postcss.config.mjs        # PostCSS configuration
+├── sentry.edge.config.ts     # Sentry edge runtime config
+├── sentry.server.config.ts   # Sentry server config
+└── tsconfig.json             # TypeScript configuration
 ```
 
 ---
@@ -170,18 +200,22 @@ npm run db:seed      # Seed database with sample data
 
 ---
 
-## 📊 Database Schema
+## 📊 Key Application Pages
 
-### **Main Tables**
-- `companions` - Store AI companion configurations
-- `users` - User profiles and preferences
-- `session_history` - Conversation session records
-- `bookmarks` - User's bookmarked companions
+### **Core Pages**
+- **Homepage** (`/`) - Landing page and app introduction
+- **Companions Listing** (`/companions`) - Browse all available AI companions
+- **Companion Detail** (`/companions/[id]`) - Individual companion interaction page
+- **Create Companion** (`/companions/new`) - Build custom AI companions
+- **My Journey** (`/my-journey`) - Personal dashboard and usage analytics
+- **Authentication** (`/sign-in`) - User login and registration
+- **Subscription** (`/subscription`) - Billing and plan management
 
-### **Key Relationships**
-- Users can create multiple companions
-- Users can bookmark companions from other users
-- Session history tracks all user-companion interactions
+### **API Routes**
+- Companion management endpoints
+- User authentication handlers
+- Voice AI integration endpoints
+- Subscription and billing webhooks
 
 ---
 
@@ -277,10 +311,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 **Email**: support@converso.com
-- 💬 **Discord**: [Join our community](https://discord.gg/converso)
+- 📧 **Email**: kondurudurgaprasad.2@gmail.com
 - 📖 **Documentation**: [docs.converso.com](https://docs.converso.com)
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/yourusername/converso/issues)
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/Durga1534/converso/issues)
 
 ---
 
