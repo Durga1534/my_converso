@@ -238,7 +238,7 @@ Built with **Radix UI** primitives and **shadcn/ui** components for:
 ## 🔐 Authentication & Security
 
 ### **Clerk Integration**
-- Email/password authentication
+- Email authentication
 - Social login providers (Google, GitHub, etc.)
 - Session management and middleware
 - User profile management
