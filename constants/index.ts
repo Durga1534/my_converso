@@ -13,7 +13,7 @@ export const subjectsColors = {
   language: "#BDE7FF",
   coding: "#C8FFDF",
   history: "#FFECC8",
-  economics: "#FFC8E4",,
+  economics: "#FFC8E4",
 };
 
 export const voices = {
